@@ -1,14 +1,16 @@
 import { useState } from "react";
+interface Props {
+  items: string[];
+  heading: string;
+}
 //Adding Fragments
-function ListGroup() {
-  const items = ["New York", "London", "San Francisco", "Paris", "Tokyo"];
-
+function ListGroup({ items, heading }: Props) {
   //Hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/* {message} */}
       {/* if the condition is true the element is shown */}
       {items.length === 0 && <p>No tiems found</p>}
