@@ -1,22 +1,20 @@
-// import { useState } from "react";
-// import Alert from "./components/Alert";
-// import Button from "./components/Button";
-// import Like from "./components/Like";
-// import ExpandableText from "./components/ExpandableText";
-
-import Form from "./components/Form";
+import { useState } from "react";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
 
 function App() {
-  // const [alertVisible, setAlertVisible] = useState(false);
+  const [expenses, setExpenses] = useState([
+    { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+    { id: 2, description: "bbb", amount: 11, category: "Utilities" },
+    { id: 3, description: "nnn", amount: 3, category: "Utilities" },
+    { id: 4, description: "ggg", amount: 45, category: "Utilities" },
+  ]);
+
   return (
     <div>
-      <Form></Form>
-
-      {/* <Like onClick={() => console.log("Clicked")} />
-      {alertVisible && (
-        <Alert onClose={() => setAlertVisible(false)}>My alert</Alert>
-      )}
-      <Button onClick={() => setAlertVisible(true)}>My app</Button> */}
+      <ExpenseList
+        expenses={expenses}
+        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+      ></ExpenseList>
     </div>
   );
 }
