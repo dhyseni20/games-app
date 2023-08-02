@@ -8,7 +8,7 @@ const ProductList = ({ category }: { category: string }) => {
     setProducts(["Clothing", "Household"]);
   }, [category]);
 
-  return <div> ProductList</div>;
+  return <div> ProductList {products}</div>;
 };
 
 export default ProductList;
